@@ -3,11 +3,12 @@ echo "Step 1: Installing Basic Tools and Programs!"
 cd
 sudo apt-get install -y python3
 sudo apt-get install -y idle
-sudo apt-get install -y tilix
 sudo apt-get install -y steghide
 sudo apt-get install -y exiftool
 sudo apt-get install -y exif
 pip3 install --upgrade -e git+https://github.com/twintproject/twint.git@origin/master#egg=twint
+sudo apt-get install -y guake
+sudo apt-get install -y rxvt-unicode
 cd
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
@@ -15,8 +16,8 @@ echo "Step 2: Installing StegSolve!"
 cd
 wget http://www.caesum.com/handbook/Stegsolve.jar -O stegsolve.jar
 chmod +x stegsolve.jar
-mkdir bin
-mv stegsolve.jar bin/ 
+mkdir stegsolve
+mv stegsolve.jar stegsolve/ 
 cd
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
@@ -163,23 +164,7 @@ sudo snap install --classic code
 cd
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
-echo "Step 17: Updating and Upgrading Kali-Linux OS!"
-cd
-sudo apt-get update 
-sudo apt-get upgrade -y
-cd
-echo "-------------------------------------------------------------------------------------------------"
-echo "-------------------------------------------------------------------------------------------------"
-echo "Step 18: Reconfiguring Packages"
-cd
-sudo apt-get clean
-sudo apt-get install -f
-sudo dpkg --configure -a
-sudo apt-get update
-cd
-echo "-------------------------------------------------------------------------------------------------"
-echo "-------------------------------------------------------------------------------------------------"
-echo "Step 19: Installing ReconT!"
+echo "Step 17: Installing ReconT!"
 cd
 git clone https://github.com/jaxBCD/ReconT.git 
 sudo apt install python3 nmap
@@ -187,7 +172,7 @@ pip3 install -r requirements.txt
 cd
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
-echo "Step 20: Installing FinalRecon!"
+echo "Step 18: Installing FinalRecon!"
 cd
 git clone https://github.com/thewhiteh4t/FinalRecon.git
 cd FinalRecon
@@ -195,31 +180,31 @@ pip3 install -r requirements.txt
 cd
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
-echo "Step 21: Installing WiFiPhisher!"
+echo "Step 19: Installing WiFiPhisher!"
 cd
-sudo apt-get install wifiphisher
+sudo apt-get install wifiphisher -y 
 cd 
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
-echo "Step 22: Installing WxHexEditor!"
+echo "Step 20: Installing WxHexEditor!"
 cd
-sudo apt-get install wxhexeditor
-cd
-echo "-------------------------------------------------------------------------------------------------"
-echo "-------------------------------------------------------------------------------------------------"
-echo "Step 23: Installing GHex Hex Editor!"
-cd
-sudo snap install ghex-udt
+sudo apt-get install wxhexeditor -y
 cd
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
-echo "Step 24: Installing BlackEye!"
+echo "Step 21: Installing GHex Hex Editor!"
+cd
+sudo snap install ghex-udt -y
+cd
+echo "-------------------------------------------------------------------------------------------------"
+echo "-------------------------------------------------------------------------------------------------"
+echo "Step 22: Installing BlackEye!"
 cd
 git clone https://github.com/thelinuxchoice/blackeye
 cd
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
-echo "Step 25: Installing LinEnum!"
+echo "Step 23: Installing LinEnum!"
 cd
 mkdir linenum
 cd linenum/
@@ -227,34 +212,35 @@ wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh
 cd
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
-echo "Step 26: Installing Sonic Visualizer!"
+echo "Step 24: Installing Sonic Visualizer!"
 cd
 wget https://bintray.com/sonic-visualiser/sonic-visualiser/download_file?file_path=sonic-visualiser_4.0_amd64.deb
-dpkg -i download_file%3Ffile_path=sonic-visualiser_4.0_amd64.deb
+dpkg -i download_file?file_path=sonic-visualiser_4.0_amd64.deb
 cd
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
-echo "Step 27: Installing Bleachbit!"
+echo "Step 25: Installing Bleachbit!"
 cd
-sudo apt install bleachbit
+sudo apt install bleachbit -y
 cd
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
-echo "Step 28: Installing IDA Debugger!"
+echo "Step 26: Installing IDA Debugger!"
 cd
-mkdir IDA Debugger
+mkdir IDA
+cd /root/IDA
 wget https://out7.hex-rays.com/files/idafree70_linux.run
 cd
 cd
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
-echo "Step 29: Installing Putty SSH Client!"
+echo "Step 27: Installing Putty SSH Client!"
 cd
 sudo apt-get update
 sudo apt-get install -y putty
 cd
 echo "-------------------------------------------------------------------------------------------------"
-echo "Step 30: Installing Airgeddon!"
+echo "Step 28: Installing Airgeddon!"
 cd
 git clone github.com/v1s1t0r1sh3r3/airgeddon.git
 cd airgeddon
@@ -262,13 +248,49 @@ chmod +x airgeddon.sh
 cd
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
-echo "Step 31: Installing Virtualbox Guest Additions!"
+echo "Step 29: Installing Virtualbox Guest Additions!"
 cd
 sudo apt-get update
 sudo apt-get install -y virtualbox-guest-x11
 cd
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
+echo "Step 30: Updating and Upgrading Kali-Linux OS!"
+cd
+sudo apt-get update 
+sudo apt-get upgrade -y
+sudo apt-get dist-upgrade
+cd
+echo "-------------------------------------------------------------------------------------------------"
+echo "-------------------------------------------------------------------------------------------------"
+echo "Step 31: Installing Firefox Developer Edition and Creating Shortcut"
+cd 
+wget https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US
+cd Downloads
+mkdir -p /opt/firefox-developer
+mv firefox /opt/firefox-developer
+cd /opt/firefox-developer/firefox
+touch firefox-developer.desktop
+echo "[Desktop Entry]" >> firefox-developer.desktop
+echo "Name=Firefox Developer" >> firefox-developer.desktop 
+echo "GenericName=Firefox Developer Edition" >> firefox-developer.desktop
+echo "Exec=/opt/firefox-developer/firefox/firefox" >> firefox-developer.desktop 
+echo "Terminal=false" >> firefox-developer.desktop
+echo "Icon=/opt/firefox-developer/firefox/browser/icons/mozicon128.png" >> firefox-developer.desktop 
+echo "Type=Application" >> firefox-developer.desktop
+echo "Categories=Application;Network;X-Developer;" >> firefox-developer.desktop 
+echo "Comment=Firefox Developer Edition Web Browser." >> firefox-developer.desktop 
+chmod +x firefox-developer.desktop
+mv firefox-developer.desktop /usr/share/applications
+cd
+echo "-------------------------------------------------------------------------------------------------"
+echo "-------------------------------------------------------------------------------------------------"
+echo "Step 32: Installing Terminology!"
+cd
+sudo add-apt-repository ppa:enlightenment-git/ppa
+sudo apt-get update
+sudo apt-get install terminology
+cd
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
 echo "-----------------------------All Installations Are Completed!!!!!!!!!----------------------------"
@@ -277,7 +299,8 @@ echo "--List of Installed Tools: Python, IDLE, Tilix, Steghide, Exif, ExifTool, 
 echo "Python Libraries, StegCracker, EvilLimiter, Tidos, RouterSploit, Lazyscript, Kali Linux All- ----"
 echo "Metapackage, Hatch, Fluxion, EvilOSX, PSPY, UserRecon, SocialFish, VS Code, ReconT, FinalRecon, -"
 echo "WiFiPhisher, WxHexEditor, GHex, BlackEye, LinEnum, Sonic Visualizer, Bleachbit, IDA Debugger, ---"
-echo "Putty SSH Client, Airgeddon, Virtualbox Guest Additions, and a full Distro Update and Upgrade!!!!"
+echo "Putty SSH Client, Airgeddon, Firefox-Developer, Virtualbox Guest Additions, ---------------------"
+echo "and a full Distro Update and Upgrade!!!!"
 echo "-------------------------------------------------------------------------------------------------"
 echo "---------------------------Reboot System to Finalize Installs!!!!!!!!!---------------------------"
 echo "-------------------------------------------------------------------------------------------------"
