@@ -263,7 +263,16 @@ sudo apt-get dist-upgrade
 cd
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
-echo "Step 31: Installing Firefox Developer Edition and Creating Shortcut"
+echo "Step 31: Installing Lockdoor Framework!"
+cd
+git clone https://github.com/SofianeHamlaoui/Lockdoor-Framework.git && cd Lockdoor-Framework
+chmod +x ./install.sh
+./install.sh -y
+cd
+echo "-------------------------------------------------------------------------------------------------"
+echo "-------------------------------------------------------------------------------------------------"
+echo "-------------------------------------------------------------------------------------------------"
+echo "Step 32: Installing Firefox Developer Edition and Creating Shortcut"
 cd 
 wget https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US
 cd Downloads
@@ -293,14 +302,23 @@ sudo apt-get install terminology
 cd
 echo "-------------------------------------------------------------------------------------------------"
 echo "-------------------------------------------------------------------------------------------------"
+echo "Step 33: Installing EhTools!"
+cd
+git clone https://github.com/entynetproject/ehtools.git
+cd ehtools
+chmod +x install.sh
+./install.sh
+cd
+echo "-------------------------------------------------------------------------------------------------"
+echo "-------------------------------------------------------------------------------------------------"
 echo "-----------------------------All Installations Are Completed!!!!!!!!!----------------------------"
 echo "-------------------------------------------------------------------------------------------------"
 echo "--List of Installed Tools: Python, IDLE, Tilix, Steghide, Exif, ExifTool, Twint, StegSolve, Many "
 echo "Python Libraries, StegCracker, EvilLimiter, Tidos, RouterSploit, Lazyscript, Kali Linux All- ----"
 echo "Metapackage, Hatch, Fluxion, EvilOSX, PSPY, UserRecon, SocialFish, VS Code, ReconT, FinalRecon, -"
 echo "WiFiPhisher, WxHexEditor, GHex, BlackEye, LinEnum, Sonic Visualizer, Bleachbit, IDA Debugger, ---"
-echo "Putty SSH Client, Airgeddon, Guake, Terminology, Firefox-Developer, rxvt-unicode, Virtualbox- ---"
-echo "Guest Additions, and a full Distro Update and Upgrade!!!!"
+echo "Putty SSH Client, Airgeddon, Guake, Terminology, Firefox-Developer, rxvt-unicode, EhTools, ------"
+echo "VirtualBox Guest Additions, and a full Distro Update and Upgrade!!!!-----------------------------"
 echo "-------------------------------------------------------------------------------------------------"
 echo "---------------------------Reboot System to Finalize Installs!!!!!!!!!---------------------------"
 echo "-------------------------------------------------------------------------------------------------"
